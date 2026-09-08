@@ -1,5 +1,5 @@
 #!name = 国内常用域名阿里 DoH Lite
-#!desc = .cn 与常用中国服务使用阿里 DoH；其他域名使用主配置 DNS。
+#!desc = 常用中国服务与.cn使用阿里 DoH；其他域名使用主配置 DNS。
 #!author = miaoshououdezhi
 #!homepage = https://github.com/miaoshououdezhi/Proxy
 # Source: https://github.com/felixonmars/dnsmasq-china-list
