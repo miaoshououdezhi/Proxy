@@ -1,0 +1,49 @@
+name: Update Loon China AliDNS
+
+on:
+  schedule:
+    - cron: "17 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-loon-china-alidns
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download upstream domain list
+        run: >-
+          curl --fail --location --retry 3 --retry-all-errors
+          --output /tmp/accelerated-domains.china.conf
+          https://raw.githubusercontent.com/felixonmars/dnsmasq-china-list/master/accelerated-domains.china.conf
+
+      - name: Generate Loon plugin
+        run: >-
+          python3 scripts/update_china_alidns.py
+          --source /tmp/accelerated-domains.china.conf
+          --output Loon/China-AliDNS.lpx
+
+      - name: Validate generated plugin
+        run: |
+          grep -Fxq '[Host]' Loon/China-AliDNS.lpx
+          test "$(grep -Fc ' = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx)" -gt 200000
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- Loon/China-AliDNS.lpx; then
+            echo "No upstream changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Loon/China-AliDNS.lpx
+          git commit -m "Update Loon China AliDNS plugin"
+          git push
