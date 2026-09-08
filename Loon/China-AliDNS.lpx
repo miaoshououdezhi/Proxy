@@ -3,7 +3,7 @@
 #!author = miaoshououdezhi
 #!homepage = https://github.com/miaoshououdezhi/Proxy
 # Source: https://github.com/felixonmars/dnsmasq-china-list
-# Source-SHA256: b9903ff0d14d1f2ba94d9c85e313bc8f76fa3782eb12c0e5537d9fd3f6fca657
+# Source-SHA256: 875b18c6b79c8eb24a74a11c721c6ab1cfcad4844743e941898066837ed36738
 # Selected: 121 roots; skipped missing roots: 9
 [Host]
 *.cn = server:https://dns.alidns.com/dns-query
