@@ -1,0 +1,82 @@
+# NAME: AI
+# AUTHOR: miaoshououdezhi
+# UPDATED: 2026-09-08
+# DESCRIPTION: 主流海外 AI 服务域名，供 Loon 远程规则调用。
+
+# OpenAI / ChatGPT
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+
+# Anthropic / Claude
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+
+# Google Gemini / AI Studio
+DOMAIN,gemini.google.com
+DOMAIN,aistudio.google.com
+DOMAIN,generativelanguage.googleapis.com
+
+# Microsoft Copilot / GitHub Copilot
+DOMAIN,copilot.microsoft.com
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN,copilot-proxy.githubusercontent.com
+
+# xAI / Grok
+DOMAIN-SUFFIX,x.ai
+DOMAIN-SUFFIX,grok.com
+
+# Perplexity
+DOMAIN-SUFFIX,perplexity.ai
+
+# Meta AI
+DOMAIN-SUFFIX,meta.ai
+
+# Mistral / Le Chat
+DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,lechat.com
+
+# Poe / Quora
+DOMAIN-SUFFIX,poe.com
+
+# Character.AI
+DOMAIN-SUFFIX,character.ai
+
+# Hugging Face
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,hf.co
+DOMAIN-SUFFIX,hf.space
+
+# Midjourney
+DOMAIN-SUFFIX,midjourney.com
+
+# Runway
+DOMAIN-SUFFIX,runwayml.com
+
+# ElevenLabs
+DOMAIN-SUFFIX,elevenlabs.io
+
+# Suno
+DOMAIN-SUFFIX,suno.com
+DOMAIN-SUFFIX,suno.ai
+
+# Cursor
+DOMAIN-SUFFIX,cursor.com
+DOMAIN-SUFFIX,cursor.sh
+
+# Cohere
+DOMAIN-SUFFIX,cohere.com
+
+# Groq
+DOMAIN-SUFFIX,groq.com
+
+# OpenRouter
+DOMAIN-SUFFIX,openrouter.ai
+
+# Together AI
+DOMAIN-SUFFIX,together.ai
+
+# Fireworks AI
+DOMAIN-SUFFIX,fireworks.ai
+

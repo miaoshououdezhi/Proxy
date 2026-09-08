@@ -1,0 +1,106 @@
+# NAME: Exchange
+# AUTHOR: miaoshououdezhi
+# UPDATED: 2026-09-08
+# DESCRIPTION: 数字资产交易所、DeFi 与跨境金融服务域名，供 Loon 远程规则调用。
+
+# 用户指定：Plasma / Plasma One
+DOMAIN-SUFFIX,plasma.org
+DOMAIN-SUFFIX,plasma.to
+
+# 用户指定：MEXC
+DOMAIN-SUFFIX,mexc.com
+DOMAIN-SUFFIX,mexc.co
+DOMAIN-SUFFIX,mexc.fm
+
+# 用户指定：ether.fi
+DOMAIN-SUFFIX,ether.fi
+
+# 用户指定：Kraken
+DOMAIN-SUFFIX,kraken.com
+DOMAIN-SUFFIX,kraken.tech
+DOMAIN-SUFFIX,krakenassets.com
+
+# 用户指定：Starryblu
+DOMAIN-SUFFIX,starryblu.com
+DOMAIN-SUFFIX,wotransfer.com
+
+# 用户指定：Backpack Exchange（原输入 Backpacket）
+DOMAIN-SUFFIX,backpack.exchange
+DOMAIN-SUFFIX,backpack.app
+
+# 用户指定：henaBIT（原输入 Hena）
+DOMAIN-SUFFIX,henabit.com
+
+# Binance
+DOMAIN-SUFFIX,binance.com
+DOMAIN-SUFFIX,binance.us
+DOMAIN-SUFFIX,bnbstatic.com
+
+# Coinbase
+DOMAIN-SUFFIX,coinbase.com
+DOMAIN-SUFFIX,coinbasecdn.net
+
+# OKX
+DOMAIN-SUFFIX,okx.com
+DOMAIN-SUFFIX,okx-dns.com
+
+# Bybit
+DOMAIN-SUFFIX,bybit.com
+DOMAIN-SUFFIX,bybitglobal.com
+
+# KuCoin
+DOMAIN-SUFFIX,kucoin.com
+
+# Gate
+DOMAIN-SUFFIX,gate.io
+DOMAIN-SUFFIX,gate.com
+
+# Bitget
+DOMAIN-SUFFIX,bitget.com
+DOMAIN-SUFFIX,bitgetapp.com
+
+# Crypto.com
+DOMAIN-SUFFIX,crypto.com
+
+# HTX
+DOMAIN-SUFFIX,htx.com
+
+# Gemini Exchange
+DOMAIN-SUFFIX,gemini.com
+
+# Bitstamp
+DOMAIN-SUFFIX,bitstamp.net
+
+# Bitfinex
+DOMAIN-SUFFIX,bitfinex.com
+
+# Deribit
+DOMAIN-SUFFIX,deribit.com
+
+# CoinEx
+DOMAIN-SUFFIX,coinex.com
+
+# Bullish
+DOMAIN-SUFFIX,bullish.com
+
+# Upbit
+DOMAIN-SUFFIX,upbit.com
+
+# Bithumb
+DOMAIN-SUFFIX,bithumb.com
+
+# Hyperliquid
+DOMAIN-SUFFIX,hyperliquid.xyz
+
+# dYdX
+DOMAIN-SUFFIX,dydx.trade
+
+# Uniswap
+DOMAIN-SUFFIX,uniswap.org
+
+# Jupiter
+DOMAIN-SUFFIX,jup.ag
+
+# PancakeSwap
+DOMAIN-SUFFIX,pancakeswap.finance
+
