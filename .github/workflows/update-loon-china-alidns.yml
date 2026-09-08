@@ -34,7 +34,11 @@ jobs:
       - name: Validate generated plugin
         run: |
           grep -Fxq '[Host]' Loon/China-AliDNS.lpx
-          test "$(grep -Fc ' = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx)" -gt 200000
+          grep -Fxq '*.cn = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx
+          entries="$(grep -Fc ' = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx)"
+          test "$entries" -ge 200
+          test "$entries" -le 1000
+          test "$(wc -c < Loon/China-AliDNS.lpx)" -le 262144
 
       - name: Commit changes
         run: |
@@ -45,5 +49,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Loon/China-AliDNS.lpx
-          git commit -m "Update Loon China AliDNS plugin"
+          git commit -m "Update Loon China AliDNS Lite plugin"
           git push
