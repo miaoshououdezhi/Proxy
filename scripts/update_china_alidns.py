@@ -89,6 +89,7 @@ def render(upstream: set[str], source_sha256: str) -> str:
         "#!desc = .cn 与常用中国服务使用阿里 DoH；其他域名使用主配置 DNS。",
         "#!author = miaoshououdezhi",
         "#!homepage = https://github.com/miaoshououdezhi/Proxy",
+        "#!icon = https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Logo/aliyun-logo-icon.png",
         "# Source: https://github.com/felixonmars/dnsmasq-china-list",
         f"# Source-SHA256: {source_sha256}",
         f"# Selected: {len(selected)} roots; skipped missing roots: {len(missing)}",
