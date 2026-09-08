@@ -250,3 +250,8 @@ zhihu.com = server:https://dns.alidns.com/dns-query
 *.zhihu.com = server:https://dns.alidns.com/dns-query
 zhipin.com = server:https://dns.alidns.com/dns-query
 *.zhipin.com = server:https://dns.alidns.com/dns-query
+# > 小蚕霸王餐
+xiaocantech.com = server:https://dns.alidns.com/dns-query
+*.xiaocantech.com = server:https://dns.alidns.com/dns-query
+xiaocanapp.com = server:https://dns.alidns.com/dns-query
+*.xiaocanapp.com = server:https://dns.alidns.com/dns-query
