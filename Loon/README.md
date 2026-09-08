@@ -8,7 +8,7 @@
 
 ```ini
 [Plugin]
-https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/China-AliDNS.lpx,tag=国内域名阿里DoH,enabled=true
+https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Plugins/China-AliDNS.lpx,tag=国内域名阿里DoH,enabled=true
 ```
 
 ## 自动更新
