@@ -29,25 +29,25 @@ jobs:
         run: >-
           python3 scripts/update_china_alidns.py
           --source /tmp/accelerated-domains.china.conf
-          --output Loon/China-AliDNS.lpx
+          --output Loon/Plugins/China-AliDNS.lpx
 
       - name: Validate generated plugin
         run: |
-          grep -Fxq '[Host]' Loon/China-AliDNS.lpx
-          grep -Fxq '*.cn = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx
-          entries="$(grep -Fc ' = server:https://dns.alidns.com/dns-query' Loon/China-AliDNS.lpx)"
+          grep -Fxq '[Host]' Loon/Plugins/China-AliDNS.lpx
+          grep -Fxq '*.cn = server:https://dns.alidns.com/dns-query' Loon/Plugins/China-AliDNS.lpx
+          entries="$(grep -Fc ' = server:https://dns.alidns.com/dns-query' Loon/Plugins/China-AliDNS.lpx)"
           test "$entries" -ge 200
           test "$entries" -le 1000
-          test "$(wc -c < Loon/China-AliDNS.lpx)" -le 262144
+          test "$(wc -c < Loon/Plugins/China-AliDNS.lpx)" -le 262144
 
       - name: Commit changes
         run: |
-          if git diff --quiet -- Loon/China-AliDNS.lpx; then
+          if git diff --quiet -- Loon/Plugins/China-AliDNS.lpx; then
             echo "No upstream changes"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Loon/China-AliDNS.lpx
+          git add Loon/Plugins/China-AliDNS.lpx
           git commit -m "Update Loon China AliDNS Lite plugin"
           git push
