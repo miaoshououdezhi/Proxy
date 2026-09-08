@@ -1,5 +1,5 @@
 #!name = 国内常用域名阿里 DoH Lite
-#!desc = 常用中国服务与.cn使用阿里 DoH；其他域名使用主配置 DNS。
+#!desc = .cn 与常用中国服务使用阿里 DoH；其他域名使用主配置 DNS。
 #!author = miaoshououdezhi
 #!homepage = https://github.com/miaoshououdezhi/Proxy
 #!icon = https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Logo/aliyun-logo-icon.png
@@ -250,8 +250,3 @@ zhihu.com = server:https://dns.alidns.com/dns-query
 *.zhihu.com = server:https://dns.alidns.com/dns-query
 zhipin.com = server:https://dns.alidns.com/dns-query
 *.zhipin.com = server:https://dns.alidns.com/dns-query
-# > 小蚕霸王餐
-xiaocantech.com = server:https://dns.alidns.com/dns-query
-*.xiaocantech.com = server:https://dns.alidns.com/dns-query
-xiaocanapp.com = server:https://dns.alidns.com/dns-query
-*.xiaocanapp.com = server:https://dns.alidns.com/dns-query
