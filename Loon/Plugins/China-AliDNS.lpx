@@ -4,7 +4,7 @@
 #!homepage = https://github.com/miaoshououdezhi/Proxy
 #!icon = https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Logo/aliyun-logo-icon.png
 # Source: https://github.com/felixonmars/dnsmasq-china-list
-# Source-SHA256: 875b18c6b79c8eb24a74a11c721c6ab1cfcad4844743e941898066837ed36738
+# Source-SHA256: 6cf7f02fe32371d129365fb512287b23c7364146b0c1fd46fb7fe62543c8ae47
 # Selected: 121 roots; skipped missing roots: 9
 [Host]
 *.cn = server:https://dns.alidns.com/dns-query
