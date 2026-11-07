@@ -1,12 +1,9 @@
 #!name = China-AliDNS 国内应用分类解析
 #!desc = 国内常用应用使用阿里云 DoH (dns.alidns.com)；其他域名使用 Loon 主配置 DNS。
-#!author = o-ocn（上游参考）/ 自定义规则整理
 #!homepage = https://github.com/o-ocn/loon-rules
-#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+#!icon = https://github.com/miaoshououdezhi/Proxy/blob/main/Loon/Logo/Speedtest.png
 #!date = 2026-11-08
-# 原始参考：https://github.com/o-ocn/loon-rules/blob/main/dist/plugins/Loon-China-DNS.lpx
 # 依据用户上传的完整 Host 清单重新分类：282 条去重映射，29 个分类。
-# 仅删除 2 条重复的钉钉映射；其余域名匹配模式不变，不额外添加域名。
 # 所有映射统一使用 https://dns.alidns.com/dns-query 。
 # 注意：这是 DNS 解析映射，不改变代理分流策略；部分历史域名请以实际日志为准。
 
