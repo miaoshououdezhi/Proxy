@@ -1,417 +1,252 @@
-#!name = China-AliDNS 国内应用分类解析
-#!desc = 国内常用应用使用阿里云 DoH (dns.alidns.com)；其他域名使用 Loon 主配置 DNS。
-#!homepage = https://github.com/o-ocn/loon-rules
-#!icon = https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Logo/Speedtest.png
-#!date = 2026-11-08
-# 依据用户上传的完整 Host 清单重新分类：282 条去重映射，29 个分类。
-# 所有映射统一使用 https://dns.alidns.com/dns-query 。
-# 注意：这是 DNS 解析映射，不改变代理分流策略；部分历史域名请以实际日志为准。
-
+#!name = 国内常用域名阿里 DoH Lite
+#!desc = .cn 与常用中国服务使用阿里 DoH；其他域名使用主配置 DNS。
+#!author = miaoshououdezhi
+#!homepage = https://github.com/miaoshououdezhi/Proxy
+#!icon = https://raw.githubusercontent.com/miaoshououdezhi/Proxy/main/Loon/Logo/aliyun-logo-icon.png
+# Source: https://github.com/felixonmars/dnsmasq-china-list
+# Source-SHA256: 3780aa1aa97dffae010998ce0f320351c4646a4bd4a66327f6f99393f1ae7e22
+# Selected: 121 roots; skipped missing roots: 9
 [Host]
-
-# ==============================================================
-# 01 | 中国大陆域名（通用）（1 条）
-# ==============================================================
-# *.cn 为 .cn 子域名提供通用阿里云 DoH 解析；下面仍保留部分明确的 .cn 业务规则。
 *.cn = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 02 | Apple App Store / CDN（仅指定域名）（13 条）
-# ==============================================================
-# 仅对列出的 Apple 主机和 CDN 生效；不使用 *.apple.com 或 *.icloud.com。
-# 包含全球共用的 apps.apple.com，可能影响外区 App Store 的 CDN 选择。
-amp-api-edge.apps.apple.com = server:https://dns.alidns.com/dns-query
-amp-api-search-edge.apps.apple.com = server:https://dns.alidns.com/dns-query
-amp-api.apps.apple.com = server:https://dns.alidns.com/dns-query
-apps.apple.com = server:https://dns.alidns.com/dns-query
-cl1.apple.com = server:https://dns.alidns.com/dns-query
-cl2.apple.com = server:https://dns.alidns.com/dns-query
-cl3.apple.com = server:https://dns.alidns.com/dns-query
-cl4.apple.com = server:https://dns.alidns.com/dns-query
-cl5.apple.com = server:https://dns.alidns.com/dns-query
-guzzoni.smoot.apple.com = server:https://dns.alidns.com/dns-query
-*.mzstatic.com = server:https://dns.alidns.com/dns-query
-pancake.apple.com = server:https://dns.alidns.com/dns-query
-tr.iadsdk.apple.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 03 | 阿里巴巴 / 淘宝 / 支付宝 / 闲鱼 / 盒马（12 条）
-# ==============================================================
-*.1688.com = server:https://dns.alidns.com/dns-query
-*.alicdn.com = server:https://dns.alidns.com/dns-query
-*.alipay.com = server:https://dns.alidns.com/dns-query
-*.alipayobjects.com = server:https://dns.alidns.com/dns-query
-*.freshippo.com = server:https://dns.alidns.com/dns-query
-*.goofish.com = server:https://dns.alidns.com/dns-query
-*.hemaos.com = server:https://dns.alidns.com/dns-query
-*.idlefish.com = server:https://dns.alidns.com/dns-query
-*.mmstat.com = server:https://dns.alidns.com/dns-query
-*.taobao.com = server:https://dns.alidns.com/dns-query
-*.taobaocdn.com = server:https://dns.alidns.com/dns-query
-*.tmall.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 04 | 淘宝闪购 / 饿了么（2 条）
-# ==============================================================
-# 淘宝闪购相关的 ele.me / elemecdn.com 单独归类。
-*.ele.me = server:https://dns.alidns.com/dns-query
-*.elemecdn.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 05 | 京东 / 京东外卖 / 到家（4 条）
-# ==============================================================
-# jddj.com 已从上传文件的“网盘”分组移至此处。
-*.360buyimg.com = server:https://dns.alidns.com/dns-query
-*.jd.com = server:https://dns.alidns.com/dns-query
-jddj.com = server:https://dns.alidns.com/dns-query
-*.jddj.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 06 | 拼多多（3 条）
-# ==============================================================
-*.pddpic.com = server:https://dns.alidns.com/dns-query
-*.pinduoduo.com = server:https://dns.alidns.com/dns-query
-*.yangkeduo.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 07 | 美团 / 大众点评（4 条）
-# ==============================================================
-*.dianping.com = server:https://dns.alidns.com/dns-query
-*.meituan.com = server:https://dns.alidns.com/dns-query
-*.meituan.net = server:https://dns.alidns.com/dns-query
-*.sankuai.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 08 | 抖音 / 字节跳动 / 火山直播（32 条）
-# ==============================================================
-*.amemv.com = server:https://dns.alidns.com/dns-query
-*.bytedance.com = server:https://dns.alidns.com/dns-query
-*.bytegecko.com = server:https://dns.alidns.com/dns-query
-*.bytehwm.com = server:https://dns.alidns.com/dns-query
-*.bytemaimg.com = server:https://dns.alidns.com/dns-query
-*.bytetos.com = server:https://dns.alidns.com/dns-query
-*.doupay.com = server:https://dns.alidns.com/dns-query
-*.douyin.com = server:https://dns.alidns.com/dns-query
-*.douyincdn.com = server:https://dns.alidns.com/dns-query
-*.douyinliving.com = server:https://dns.alidns.com/dns-query
-*.douyinpic.com = server:https://dns.alidns.com/dns-query
-*.douyinstatic.com = server:https://dns.alidns.com/dns-query
-*.douyinvod.com = server:https://dns.alidns.com/dns-query
-*.ecombdapi.com = server:https://dns.alidns.com/dns-query
-*.ecombdimg.com = server:https://dns.alidns.com/dns-query
-*.ecombdpage.com = server:https://dns.alidns.com/dns-query
-*.ecombdstatic.com = server:https://dns.alidns.com/dns-query
-*.ecombdvod.com = server:https://dns.alidns.com/dns-query
-huoshan.com = server:https://dns.alidns.com/dns-query
-*.huoshan.com = server:https://dns.alidns.com/dns-query
-idouyinvod.com = server:https://dns.alidns.com/dns-query
-*.idouyinvod.com = server:https://dns.alidns.com/dns-query
-*.iesdouyin.com = server:https://dns.alidns.com/dns-query
-lf3-static.bytednsdoc.com = server:https://dns.alidns.com/dns-query
-*.ndcpp.com = server:https://dns.alidns.com/dns-query
-*.pstatp.com = server:https://dns.alidns.com/dns-query
-*.qishui.com = server:https://dns.alidns.com/dns-query
-*.snssdk.com = server:https://dns.alidns.com/dns-query
-*.toutiao.com = server:https://dns.alidns.com/dns-query
-*.toutiaoimg.com = server:https://dns.alidns.com/dns-query
-*.toutiaovod.com = server:https://dns.alidns.com/dns-query
-*.zijieapi.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 09 | 快手 / 快手直播（14 条）
-# ==============================================================
-ecukwai.com = server:https://dns.alidns.com/dns-query
-*.ecukwai.com = server:https://dns.alidns.com/dns-query
-*.gifshow.com = server:https://dns.alidns.com/dns-query
-ksapisrv.com = server:https://dns.alidns.com/dns-query
-*.ksapisrv.com = server:https://dns.alidns.com/dns-query
-*.kuaishou.com = server:https://dns.alidns.com/dns-query
-kuaishougif.com = server:https://dns.alidns.com/dns-query
-*.kuaishougif.com = server:https://dns.alidns.com/dns-query
-*.kuaishoupay.com = server:https://dns.alidns.com/dns-query
-kuaishouzt.com = server:https://dns.alidns.com/dns-query
-*.kuaishouzt.com = server:https://dns.alidns.com/dns-query
-kwimgs.com = server:https://dns.alidns.com/dns-query
-*.kwimgs.com = server:https://dns.alidns.com/dns-query
-*.yximgs.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 10 | 哔哩哔哩（3 条）
-# ==============================================================
-*.bilibili.com = server:https://dns.alidns.com/dns-query
-*.bilivideo.com = server:https://dns.alidns.com/dns-query
-*.hdslb.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 11 | 虎牙直播（10 条）
-# ==============================================================
-dwstatic.com = server:https://dns.alidns.com/dns-query
-*.dwstatic.com = server:https://dns.alidns.com/dns-query
-huya.com = server:https://dns.alidns.com/dns-query
-*.huya.com = server:https://dns.alidns.com/dns-query
-huya.info = server:https://dns.alidns.com/dns-query
-*.huya.info = server:https://dns.alidns.com/dns-query
-huyainfo.com = server:https://dns.alidns.com/dns-query
-*.huyainfo.com = server:https://dns.alidns.com/dns-query
-msstatic.com = server:https://dns.alidns.com/dns-query
-*.msstatic.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 12 | YY 直播（14 条）
-# ==============================================================
-duowan.com = server:https://dns.alidns.com/dns-query
-*.duowan.com = server:https://dns.alidns.com/dns-query
-huanjuyun.com = server:https://dns.alidns.com/dns-query
-*.huanjuyun.com = server:https://dns.alidns.com/dns-query
-yy.com = server:https://dns.alidns.com/dns-query
-*.yy.com = server:https://dns.alidns.com/dns-query
-yyclouds.com = server:https://dns.alidns.com/dns-query
-*.yyclouds.com = server:https://dns.alidns.com/dns-query
-yylivecloud.com = server:https://dns.alidns.com/dns-query
-*.yylivecloud.com = server:https://dns.alidns.com/dns-query
-yyopenapp.com = server:https://dns.alidns.com/dns-query
-*.yyopenapp.com = server:https://dns.alidns.com/dns-query
-yystatic.com = server:https://dns.alidns.com/dns-query
-*.yystatic.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 13 | 其他视频 / 直播（9 条）
-# ==============================================================
-douyu.com = server:https://dns.alidns.com/dns-query
-*.douyu.com = server:https://dns.alidns.com/dns-query
-iqiyi.com = server:https://dns.alidns.com/dns-query
-*.iqiyi.com = server:https://dns.alidns.com/dns-query
-mgtv.com = server:https://dns.alidns.com/dns-query
-*.mgtv.com = server:https://dns.alidns.com/dns-query
-*.wasu.tv = server:https://dns.alidns.com/dns-query
-youku.com = server:https://dns.alidns.com/dns-query
-*.youku.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 14 | 虎扑 / 体育社区（6 条）
-# ==============================================================
-hoopchina.com = server:https://dns.alidns.com/dns-query
-*.hoopchina.com = server:https://dns.alidns.com/dns-query
-hupu.com = server:https://dns.alidns.com/dns-query
-*.hupu.com = server:https://dns.alidns.com/dns-query
-hupucdn.com = server:https://dns.alidns.com/dns-query
-*.hupucdn.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 15 | 腾讯 / QQ / 微信 / 腾讯音乐（6 条）
-# ==============================================================
-*.gtimg.com = server:https://dns.alidns.com/dns-query
-*.qpic.cn = server:https://dns.alidns.com/dns-query
-*.qq.com = server:https://dns.alidns.com/dns-query
-*.tencent.com = server:https://dns.alidns.com/dns-query
-*.tencentmusic.com = server:https://dns.alidns.com/dns-query
-*.weixin.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 16 | 社交 / 社区 / 资讯（9 条）
-# ==============================================================
-douban.com = server:https://dns.alidns.com/dns-query
-*.douban.com = server:https://dns.alidns.com/dns-query
-*.weibo.com = server:https://dns.alidns.com/dns-query
-*.weibocdn.com = server:https://dns.alidns.com/dns-query
-*.xhscdn.com = server:https://dns.alidns.com/dns-query
-*.xhscdn.net = server:https://dns.alidns.com/dns-query
-*.xiaohongshu.com = server:https://dns.alidns.com/dns-query
-zhihu.com = server:https://dns.alidns.com/dns-query
-*.zhihu.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 17 | 网易 / 网易云音乐（10 条）
-# ==============================================================
-# 同时包含 163.com / 126.com 的主站与网易云音乐特定域名。
 126.com = server:https://dns.alidns.com/dns-query
 *.126.com = server:https://dns.alidns.com/dns-query
+127.net = server:https://dns.alidns.com/dns-query
+*.127.net = server:https://dns.alidns.com/dns-query
 163.com = server:https://dns.alidns.com/dns-query
 *.163.com = server:https://dns.alidns.com/dns-query
-music.126.net = server:https://dns.alidns.com/dns-query
-*.music.126.net = server:https://dns.alidns.com/dns-query
-music.163.com = server:https://dns.alidns.com/dns-query
-*.music.163.com = server:https://dns.alidns.com/dns-query
-netease.com = server:https://dns.alidns.com/dns-query
-*.netease.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 18 | 百度 / 百度网盘 / 百度云存储（12 条）
-# ==============================================================
+1688.com = server:https://dns.alidns.com/dns-query
+*.1688.com = server:https://dns.alidns.com/dns-query
+360.com = server:https://dns.alidns.com/dns-query
+*.360.com = server:https://dns.alidns.com/dns-query
+360buyimg.com = server:https://dns.alidns.com/dns-query
+*.360buyimg.com = server:https://dns.alidns.com/dns-query
+360safe.com = server:https://dns.alidns.com/dns-query
+*.360safe.com = server:https://dns.alidns.com/dns-query
+51job.com = server:https://dns.alidns.com/dns-query
+*.51job.com = server:https://dns.alidns.com/dns-query
+58.com = server:https://dns.alidns.com/dns-query
+*.58.com = server:https://dns.alidns.com/dns-query
+acgvideo.com = server:https://dns.alidns.com/dns-query
+*.acgvideo.com = server:https://dns.alidns.com/dns-query
+aliapp.org = server:https://dns.alidns.com/dns-query
+*.aliapp.org = server:https://dns.alidns.com/dns-query
+alibaba.com = server:https://dns.alidns.com/dns-query
+*.alibaba.com = server:https://dns.alidns.com/dns-query
+alibabacloud.com = server:https://dns.alidns.com/dns-query
+*.alibabacloud.com = server:https://dns.alidns.com/dns-query
+alicdn.com = server:https://dns.alidns.com/dns-query
+*.alicdn.com = server:https://dns.alidns.com/dns-query
+alipay.com = server:https://dns.alidns.com/dns-query
+*.alipay.com = server:https://dns.alidns.com/dns-query
+alipayobjects.com = server:https://dns.alidns.com/dns-query
+*.alipayobjects.com = server:https://dns.alidns.com/dns-query
+aliyun.com = server:https://dns.alidns.com/dns-query
+*.aliyun.com = server:https://dns.alidns.com/dns-query
+aliyuncs.com = server:https://dns.alidns.com/dns-query
+*.aliyuncs.com = server:https://dns.alidns.com/dns-query
+amap.com = server:https://dns.alidns.com/dns-query
+*.amap.com = server:https://dns.alidns.com/dns-query
+amemv.com = server:https://dns.alidns.com/dns-query
+*.amemv.com = server:https://dns.alidns.com/dns-query
+antiy.com = server:https://dns.alidns.com/dns-query
+*.antiy.com = server:https://dns.alidns.com/dns-query
+baidu.com = server:https://dns.alidns.com/dns-query
 *.baidu.com = server:https://dns.alidns.com/dns-query
 baidubce.com = server:https://dns.alidns.com/dns-query
 *.baidubce.com = server:https://dns.alidns.com/dns-query
-baidupan-control.com = server:https://dns.alidns.com/dns-query
-*.baidupan-control.com = server:https://dns.alidns.com/dns-query
-baidupan.com = server:https://dns.alidns.com/dns-query
-*.baidupan.com = server:https://dns.alidns.com/dns-query
-*.baidupcs.com = server:https://dns.alidns.com/dns-query
+baidustatic.com = server:https://dns.alidns.com/dns-query
+*.baidustatic.com = server:https://dns.alidns.com/dns-query
 bcebos.com = server:https://dns.alidns.com/dns-query
 *.bcebos.com = server:https://dns.alidns.com/dns-query
+bdimg.com = server:https://dns.alidns.com/dns-query
+*.bdimg.com = server:https://dns.alidns.com/dns-query
 bdstatic.com = server:https://dns.alidns.com/dns-query
 *.bdstatic.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 19 | 其他国内网盘 / 下载（14 条）
-# ==============================================================
-# 仅保留原文件中已经列出的站点；未新增其他网盘分享入口。
-115.com = server:https://dns.alidns.com/dns-query
-*.115.com = server:https://dns.alidns.com/dns-query
-123pan.com = server:https://dns.alidns.com/dns-query
-*.123pan.com = server:https://dns.alidns.com/dns-query
-alipan.com = server:https://dns.alidns.com/dns-query
-*.alipan.com = server:https://dns.alidns.com/dns-query
-aliyundrive.com = server:https://dns.alidns.com/dns-query
-*.aliyundrive.com = server:https://dns.alidns.com/dns-query
-guangyapan.com = server:https://dns.alidns.com/dns-query
-*.guangyapan.com = server:https://dns.alidns.com/dns-query
-weiyun.com = server:https://dns.alidns.com/dns-query
-*.weiyun.com = server:https://dns.alidns.com/dns-query
-xunlei.com = server:https://dns.alidns.com/dns-query
-*.xunlei.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 20 | 飞书 / 钉钉 / 国内办公协作（24 条）
-# ==============================================================
-aliwork.com = server:https://dns.alidns.com/dns-query
-*.aliwork.com = server:https://dns.alidns.com/dns-query
+bilibili.com = server:https://dns.alidns.com/dns-query
+*.bilibili.com = server:https://dns.alidns.com/dns-query
+bilivideo.com = server:https://dns.alidns.com/dns-query
+*.bilivideo.com = server:https://dns.alidns.com/dns-query
+bosszhipin.com = server:https://dns.alidns.com/dns-query
+*.bosszhipin.com = server:https://dns.alidns.com/dns-query
+bytecdn.com = server:https://dns.alidns.com/dns-query
+*.bytecdn.com = server:https://dns.alidns.com/dns-query
+bytedance.com = server:https://dns.alidns.com/dns-query
+*.bytedance.com = server:https://dns.alidns.com/dns-query
+bytednsdoc.com = server:https://dns.alidns.com/dns-query
+*.bytednsdoc.com = server:https://dns.alidns.com/dns-query
+byteimg.com = server:https://dns.alidns.com/dns-query
+*.byteimg.com = server:https://dns.alidns.com/dns-query
+cainiao.com = server:https://dns.alidns.com/dns-query
+*.cainiao.com = server:https://dns.alidns.com/dns-query
+csdn.net = server:https://dns.alidns.com/dns-query
+*.csdn.net = server:https://dns.alidns.com/dns-query
+ctrip.com = server:https://dns.alidns.com/dns-query
+*.ctrip.com = server:https://dns.alidns.com/dns-query
+dianping.com = server:https://dns.alidns.com/dns-query
+*.dianping.com = server:https://dns.alidns.com/dns-query
+didichuxing.com = server:https://dns.alidns.com/dns-query
+*.didichuxing.com = server:https://dns.alidns.com/dns-query
+didiglobal.com = server:https://dns.alidns.com/dns-query
+*.didiglobal.com = server:https://dns.alidns.com/dns-query
 dingtalk.com = server:https://dns.alidns.com/dns-query
 *.dingtalk.com = server:https://dns.alidns.com/dns-query
+douban.com = server:https://dns.alidns.com/dns-query
+*.douban.com = server:https://dns.alidns.com/dns-query
+douyin.com = server:https://dns.alidns.com/dns-query
+*.douyin.com = server:https://dns.alidns.com/dns-query
+douyincdn.com = server:https://dns.alidns.com/dns-query
+*.douyincdn.com = server:https://dns.alidns.com/dns-query
+douyinpic.com = server:https://dns.alidns.com/dns-query
+*.douyinpic.com = server:https://dns.alidns.com/dns-query
+douyinstatic.com = server:https://dns.alidns.com/dns-query
+*.douyinstatic.com = server:https://dns.alidns.com/dns-query
+douyu.com = server:https://dns.alidns.com/dns-query
+*.douyu.com = server:https://dns.alidns.com/dns-query
+ele.me = server:https://dns.alidns.com/dns-query
+*.ele.me = server:https://dns.alidns.com/dns-query
 feishu.net = server:https://dns.alidns.com/dns-query
 *.feishu.net = server:https://dns.alidns.com/dns-query
-feishucdn.com = server:https://dns.alidns.com/dns-query
-*.feishucdn.com = server:https://dns.alidns.com/dns-query
-lanhuapp.com = server:https://dns.alidns.com/dns-query
-*.lanhuapp.com = server:https://dns.alidns.com/dns-query
-mubu.com = server:https://dns.alidns.com/dns-query
-*.mubu.com = server:https://dns.alidns.com/dns-query
-processon.com = server:https://dns.alidns.com/dns-query
-*.processon.com = server:https://dns.alidns.com/dns-query
-shimo.im = server:https://dns.alidns.com/dns-query
-*.shimo.im = server:https://dns.alidns.com/dns-query
-shimo.net = server:https://dns.alidns.com/dns-query
-*.shimo.net = server:https://dns.alidns.com/dns-query
-teambition.com = server:https://dns.alidns.com/dns-query
-*.teambition.com = server:https://dns.alidns.com/dns-query
-tower.im = server:https://dns.alidns.com/dns-query
-*.tower.im = server:https://dns.alidns.com/dns-query
-yuque.com = server:https://dns.alidns.com/dns-query
-*.yuque.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 21 | 国内银行 / 银联 / 金融支付（16 条）
-# ==============================================================
-*.95516.com = server:https://dns.alidns.com/dns-query
-*.abchina.com = server:https://dns.alidns.com/dns-query
-*.bankcomm.com = server:https://dns.alidns.com/dns-query
-*.ccb.com = server:https://dns.alidns.com/dns-query
-*.cebbank.com = server:https://dns.alidns.com/dns-query
-*.citicbank.com = server:https://dns.alidns.com/dns-query
-*.cmbchina.com = server:https://dns.alidns.com/dns-query
-*.cmbimg.com = server:https://dns.alidns.com/dns-query
-csv2.bankofchina.com = server:https://dns.alidns.com/dns-query
-*.ecitic.com = server:https://dns.alidns.com/dns-query
-pic.bankofchina.com = server:https://dns.alidns.com/dns-query
-*.pingan.com = server:https://dns.alidns.com/dns-query
-*.psbc.com = server:https://dns.alidns.com/dns-query
-srh.bankofchina.com = server:https://dns.alidns.com/dns-query
-*.unionpay.com = server:https://dns.alidns.com/dns-query
-*.unionpaysecure.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 22 | 中国四大运营商（非 .cn 域名）（10 条）
-# ==============================================================
-# 中国电信/中国广电的常见 .cn 站点由 *.cn 规则覆盖；本组保留已有的移动、联通相关非 .cn 域名。
-10010.com = server:https://dns.alidns.com/dns-query
-*.10010.com = server:https://dns.alidns.com/dns-query
-139.com = server:https://dns.alidns.com/dns-query
-*.139.com = server:https://dns.alidns.com/dns-query
-chinamobile.com = server:https://dns.alidns.com/dns-query
-*.chinamobile.com = server:https://dns.alidns.com/dns-query
-chinaunicom.com = server:https://dns.alidns.com/dns-query
-*.chinaunicom.com = server:https://dns.alidns.com/dns-query
-cmpay.com = server:https://dns.alidns.com/dns-query
-*.cmpay.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 23 | 国产手机 / 智能设备 / 米家（13 条）
-# ==============================================================
-api.io.mi.com = server:https://dns.alidns.com/dns-query
+gitee.com = server:https://dns.alidns.com/dns-query
+*.gitee.com = server:https://dns.alidns.com/dns-query
+gtimg.com = server:https://dns.alidns.com/dns-query
+*.gtimg.com = server:https://dns.alidns.com/dns-query
+hao123.com = server:https://dns.alidns.com/dns-query
+*.hao123.com = server:https://dns.alidns.com/dns-query
+harmonyos.com = server:https://dns.alidns.com/dns-query
+*.harmonyos.com = server:https://dns.alidns.com/dns-query
+hdslb.com = server:https://dns.alidns.com/dns-query
+*.hdslb.com = server:https://dns.alidns.com/dns-query
 honor.com = server:https://dns.alidns.com/dns-query
 *.honor.com = server:https://dns.alidns.com/dns-query
 huawei.com = server:https://dns.alidns.com/dns-query
 *.huawei.com = server:https://dns.alidns.com/dns-query
+huaweicloud.com = server:https://dns.alidns.com/dns-query
+*.huaweicloud.com = server:https://dns.alidns.com/dns-query
+huya.com = server:https://dns.alidns.com/dns-query
+*.huya.com = server:https://dns.alidns.com/dns-query
+idqqimg.com = server:https://dns.alidns.com/dns-query
+*.idqqimg.com = server:https://dns.alidns.com/dns-query
+ifeng.com = server:https://dns.alidns.com/dns-query
+*.ifeng.com = server:https://dns.alidns.com/dns-query
+iqiyi.com = server:https://dns.alidns.com/dns-query
+*.iqiyi.com = server:https://dns.alidns.com/dns-query
+ixigua.com = server:https://dns.alidns.com/dns-query
+*.ixigua.com = server:https://dns.alidns.com/dns-query
+jd.com = server:https://dns.alidns.com/dns-query
+*.jd.com = server:https://dns.alidns.com/dns-query
+jdcdn.com = server:https://dns.alidns.com/dns-query
+*.jdcdn.com = server:https://dns.alidns.com/dns-query
+jdcloud.com = server:https://dns.alidns.com/dns-query
+*.jdcloud.com = server:https://dns.alidns.com/dns-query
+jdpay.com = server:https://dns.alidns.com/dns-query
+*.jdpay.com = server:https://dns.alidns.com/dns-query
+jianshu.com = server:https://dns.alidns.com/dns-query
+*.jianshu.com = server:https://dns.alidns.com/dns-query
+kanzhun.com = server:https://dns.alidns.com/dns-query
+*.kanzhun.com = server:https://dns.alidns.com/dns-query
+kuaishou.com = server:https://dns.alidns.com/dns-query
+*.kuaishou.com = server:https://dns.alidns.com/dns-query
+kugou.com = server:https://dns.alidns.com/dns-query
+*.kugou.com = server:https://dns.alidns.com/dns-query
+meituan.com = server:https://dns.alidns.com/dns-query
+*.meituan.com = server:https://dns.alidns.com/dns-query
+meizu.com = server:https://dns.alidns.com/dns-query
+*.meizu.com = server:https://dns.alidns.com/dns-query
+mgtv.com = server:https://dns.alidns.com/dns-query
+*.mgtv.com = server:https://dns.alidns.com/dns-query
 mi.com = server:https://dns.alidns.com/dns-query
 *.mi.com = server:https://dns.alidns.com/dns-query
+miui.com = server:https://dns.alidns.com/dns-query
+*.miui.com = server:https://dns.alidns.com/dns-query
+mmstat.com = server:https://dns.alidns.com/dns-query
+*.mmstat.com = server:https://dns.alidns.com/dns-query
+myapp.com = server:https://dns.alidns.com/dns-query
+*.myapp.com = server:https://dns.alidns.com/dns-query
+myqcloud.com = server:https://dns.alidns.com/dns-query
+*.myqcloud.com = server:https://dns.alidns.com/dns-query
+netease.com = server:https://dns.alidns.com/dns-query
+*.netease.com = server:https://dns.alidns.com/dns-query
 oppo.com = server:https://dns.alidns.com/dns-query
 *.oppo.com = server:https://dns.alidns.com/dns-query
+oschina.net = server:https://dns.alidns.com/dns-query
+*.oschina.net = server:https://dns.alidns.com/dns-query
+pinduoduo.com = server:https://dns.alidns.com/dns-query
+*.pinduoduo.com = server:https://dns.alidns.com/dns-query
+pstatp.com = server:https://dns.alidns.com/dns-query
+*.pstatp.com = server:https://dns.alidns.com/dns-query
+qcloud.com = server:https://dns.alidns.com/dns-query
+*.qcloud.com = server:https://dns.alidns.com/dns-query
+qcloudcdn.com = server:https://dns.alidns.com/dns-query
+*.qcloudcdn.com = server:https://dns.alidns.com/dns-query
+qiyi.com = server:https://dns.alidns.com/dns-query
+*.qiyi.com = server:https://dns.alidns.com/dns-query
+qiyipic.com = server:https://dns.alidns.com/dns-query
+*.qiyipic.com = server:https://dns.alidns.com/dns-query
+qq.com = server:https://dns.alidns.com/dns-query
+*.qq.com = server:https://dns.alidns.com/dns-query
+qqmail.com = server:https://dns.alidns.com/dns-query
+*.qqmail.com = server:https://dns.alidns.com/dns-query
+qunar.com = server:https://dns.alidns.com/dns-query
+*.qunar.com = server:https://dns.alidns.com/dns-query
+sina.com = server:https://dns.alidns.com/dns-query
+*.sina.com = server:https://dns.alidns.com/dns-query
+snssdk.com = server:https://dns.alidns.com/dns-query
+*.snssdk.com = server:https://dns.alidns.com/dns-query
+sogou.com = server:https://dns.alidns.com/dns-query
+*.sogou.com = server:https://dns.alidns.com/dns-query
+sohu.com = server:https://dns.alidns.com/dns-query
+*.sohu.com = server:https://dns.alidns.com/dns-query
+soso.com = server:https://dns.alidns.com/dns-query
+*.soso.com = server:https://dns.alidns.com/dns-query
+suning.com = server:https://dns.alidns.com/dns-query
+*.suning.com = server:https://dns.alidns.com/dns-query
+taobao.com = server:https://dns.alidns.com/dns-query
+*.taobao.com = server:https://dns.alidns.com/dns-query
+taobaocdn.com = server:https://dns.alidns.com/dns-query
+*.taobaocdn.com = server:https://dns.alidns.com/dns-query
+tencent-cloud.com = server:https://dns.alidns.com/dns-query
+*.tencent-cloud.com = server:https://dns.alidns.com/dns-query
+tencent.com = server:https://dns.alidns.com/dns-query
+*.tencent.com = server:https://dns.alidns.com/dns-query
+tencentmusic.com = server:https://dns.alidns.com/dns-query
+*.tencentmusic.com = server:https://dns.alidns.com/dns-query
+tieba.com = server:https://dns.alidns.com/dns-query
+*.tieba.com = server:https://dns.alidns.com/dns-query
+tmall.com = server:https://dns.alidns.com/dns-query
+*.tmall.com = server:https://dns.alidns.com/dns-query
+tmall.hk = server:https://dns.alidns.com/dns-query
+*.tmall.hk = server:https://dns.alidns.com/dns-query
+toutiao.com = server:https://dns.alidns.com/dns-query
+*.toutiao.com = server:https://dns.alidns.com/dns-query
+toutiaocdn.com = server:https://dns.alidns.com/dns-query
+*.toutiaocdn.com = server:https://dns.alidns.com/dns-query
+ucweb.com = server:https://dns.alidns.com/dns-query
+*.ucweb.com = server:https://dns.alidns.com/dns-query
+vip.com = server:https://dns.alidns.com/dns-query
+*.vip.com = server:https://dns.alidns.com/dns-query
 vivo.com = server:https://dns.alidns.com/dns-query
 *.vivo.com = server:https://dns.alidns.com/dns-query
+weibo.com = server:https://dns.alidns.com/dns-query
+*.weibo.com = server:https://dns.alidns.com/dns-query
+weixinbridge.com = server:https://dns.alidns.com/dns-query
+*.weixinbridge.com = server:https://dns.alidns.com/dns-query
+weiyun.com = server:https://dns.alidns.com/dns-query
+*.weiyun.com = server:https://dns.alidns.com/dns-query
+xhscdn.com = server:https://dns.alidns.com/dns-query
+*.xhscdn.com = server:https://dns.alidns.com/dns-query
+xiami.com = server:https://dns.alidns.com/dns-query
+*.xiami.com = server:https://dns.alidns.com/dns-query
+xiaohongshu.com = server:https://dns.alidns.com/dns-query
+*.xiaohongshu.com = server:https://dns.alidns.com/dns-query
 xiaomi.com = server:https://dns.alidns.com/dns-query
 *.xiaomi.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 24 | 出行 / 航旅 / 地图（16 条）
-# ==============================================================
-*.alitrip.com = server:https://dns.alidns.com/dns-query
-*.amap.com = server:https://dns.alidns.com/dns-query
-*.autonavi.com = server:https://dns.alidns.com/dns-query
-*.bjsuperpass.com = server:https://dns.alidns.com/dns-query
-*.c-ctrip.com = server:https://dns.alidns.com/dns-query
-*.ctrip.com = server:https://dns.alidns.com/dns-query
-didichuxing.com = server:https://dns.alidns.com/dns-query
-*.didichuxing.com = server:https://dns.alidns.com/dns-query
-*.feeyo.com = server:https://dns.alidns.com/dns-query
-*.fliggy.com = server:https://dns.alidns.com/dns-query
-*.ly.com = server:https://dns.alidns.com/dns-query
-*.qunar.com = server:https://dns.alidns.com/dns-query
-*.qunarzz.com = server:https://dns.alidns.com/dns-query
-*.tongcheng.com = server:https://dns.alidns.com/dns-query
-*.udache.com = server:https://dns.alidns.com/dns-query
-*.variflight.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 25 | 快递 / 物流（10 条）
-# ==============================================================
-cainiao.com = server:https://dns.alidns.com/dns-query
-*.cainiao.com = server:https://dns.alidns.com/dns-query
-deppon.com = server:https://dns.alidns.com/dns-query
-*.deppon.com = server:https://dns.alidns.com/dns-query
-sf-express.com = server:https://dns.alidns.com/dns-query
-*.sf-express.com = server:https://dns.alidns.com/dns-query
-yundaex.com = server:https://dns.alidns.com/dns-query
-*.yundaex.com = server:https://dns.alidns.com/dns-query
-zto.com = server:https://dns.alidns.com/dns-query
-*.zto.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 26 | 天气 / 气象（2 条）
-# ==============================================================
-*.caiyunapp.com = server:https://dns.alidns.com/dns-query
-*.qweather.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 27 | 慢慢买 / 比价（2 条）
-# ==============================================================
-manmanbuy.com = server:https://dns.alidns.com/dns-query
-*.manmanbuy.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 28 | 小蚕霸王餐 / 小蚕惠生活（4 条）
-# ==============================================================
-# 这些映射只影响 DNS，不保证解决微信 OAuth 回调故障。
-realtech-inc.com = server:https://dns.alidns.com/dns-query
-*.realtech-inc.com = server:https://dns.alidns.com/dns-query
-xiaocanapp.com = server:https://dns.alidns.com/dns-query
-*.xiaocanapp.com = server:https://dns.alidns.com/dns-query
-
-# ==============================================================
-# 29 | 招聘 / 资讯 / 其他 CDN（7 条）
-# ==============================================================
-cdn.max-c.com = server:https://dns.alidns.com/dns-query
-img.bosszhipin.com = server:https://dns.alidns.com/dns-query
-mlvbdc.live.tlivesource.com = server:https://dns.alidns.com/dns-query
-static.max-c.com = server:https://dns.alidns.com/dns-query
-*.vegslb.com = server:https://dns.alidns.com/dns-query
-*.zdmimg.com = server:https://dns.alidns.com/dns-query
+xiaomi.net = server:https://dns.alidns.com/dns-query
+*.xiaomi.net = server:https://dns.alidns.com/dns-query
+yangkeduo.com = server:https://dns.alidns.com/dns-query
+*.yangkeduo.com = server:https://dns.alidns.com/dns-query
+youku.com = server:https://dns.alidns.com/dns-query
+*.youku.com = server:https://dns.alidns.com/dns-query
+zhihu.com = server:https://dns.alidns.com/dns-query
+*.zhihu.com = server:https://dns.alidns.com/dns-query
+zhipin.com = server:https://dns.alidns.com/dns-query
 *.zhipin.com = server:https://dns.alidns.com/dns-query
