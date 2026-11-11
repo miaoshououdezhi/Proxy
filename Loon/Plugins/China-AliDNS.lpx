@@ -150,6 +150,9 @@ kugou.com = server:https://dns.alidns.com/dns-query
 *.kugou.com = server:https://dns.alidns.com/dns-query
 meituan.com = server:https://dns.alidns.com/dns-query
 *.meituan.com = server:https://dns.alidns.com/dns-query
+# Meituan
+meituan.net = server:https://dns.alidns.com/dns-query
+*.meituan.net = server:https://dns.alidns.com/dns-query
 meizu.com = server:https://dns.alidns.com/dns-query
 *.meizu.com = server:https://dns.alidns.com/dns-query
 mgtv.com = server:https://dns.alidns.com/dns-query
